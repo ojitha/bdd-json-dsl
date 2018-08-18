@@ -1,0 +1,43 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+
+project.ext {
+    cucumberVersion = '3.0.2'
+    cucumberSpringVersion = '2.1.0'
+    junitVersion = '4.12'
+    jaywayVersion = '2.4.0'
+    springVersion = '4.3.10.RELEASE'
+
+
+}
+
+dependencies {
+    testCompile 'io.cucumber:cucumber-java:' + cucumberVersion
+    testCompile 'io.cucumber:cucumber-junit:' + cucumberVersion
+    testCompile 'junit:junit:' + junitVersion
+//    testCompile group: 'com.jayway.jsonpath', name: 'json-path', version: jaywayVersion
+    testCompile group: 'net.javacrumbs.json-unit', name: 'json-unit-fluent', version: '2.0.0.RC1'
+    compile group: 'io.burt', name: 'jmespath-jackson', version: '0.2.1'
+    testCompile group: 'io.cucumber', name: 'cucumber-spring', version: cucumberSpringVersion
+    compile group: 'org.springframework', name: 'spring-context', version: springVersion
+
+}
+
+repositories {
+    mavenCentral()
+}
+
+idea {
+    // I used SDKMAN to install the gradle
+    pathVariables GRADLE_HOME: file('/Users/ojitha/.sdkman/candidates/gradle/current/bin/gradle')
+    module {
+        // This is the JDK value for the 'name' in the File -> Project Structure -> JDKs
+            jdkName = '10'
+            downloadJavadoc = true
+            downloadSources = false
+    }
+}
+test {
+    testLogging.showStandardStreams = true
+    systemProperties System.getProperties()
+}
