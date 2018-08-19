@@ -1,7 +1,8 @@
-package dsl;
+package gettingstarted;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import cucumber.api.java.en.Then;
+import dsl.DSLContext;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.junit.Assert.assertEquals;

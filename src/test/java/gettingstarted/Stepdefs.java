@@ -1,13 +1,13 @@
-package dsl;
+package gettingstarted;
 import static org.junit.Assert.*;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import dsl.DSLContext;
 import io.burt.jmespath.Expression;
 import io.burt.jmespath.JmesPath;
 import io.burt.jmespath.jackson.JacksonRuntime;
@@ -17,7 +17,6 @@ import utils.Common;
 import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-
 
 public class Stepdefs {
     File file;
